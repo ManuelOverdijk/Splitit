@@ -1,21 +1,32 @@
 package nl.mprog.studentchoice10374582;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import androidapp.splitit.com.splitit.R;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends MyActionBarActivity {
+    private final String TAG = "SecondActivity";
+    private ObjectPreference objectPreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-    }
 
+        objectPreference = (ObjectPreference) this.getApplication();
+        ComplexPreferences complexPreferences = objectPreference.getComplexPreference();
+
+        android.util.Log.i(TAG, "User");
+        User user = complexPreferences.getObject("user", User.class);
+        android.util.Log.i(TAG, "Name " + user.getName());
+        android.util.Log.i(TAG, "Address " + user.getEmail());
+        android.util.Log.i(TAG, "Age " + user.getAuthData());
+        android.util.Log.i(TAG, "isActive " + user.isActive());
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

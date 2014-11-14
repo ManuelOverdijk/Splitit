@@ -1,6 +1,5 @@
 package nl.mprog.studentchoice10374582;
 
-import android.app.ListActivity;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,15 +20,13 @@ import com.firebase.client.ValueEventListener;
 import androidapp.splitit.com.splitit.R;
 
 
-public class chatActivity extends ListActivity {
+public class chatActivity extends MyListActivity {
 
-    private String firebaseroot = "https://splitit-dev.firebaseio.com/";
-    private Firebase firebaseRef;
     private ValueEventListener connectedListener;
     private ChatListAdapter chatListAdapter;
 
-    private String username = "Manuel";
-    private String chatId = "GroupChatId";
+    private String chatId = "100";
+    private Firebase ref;
 
     private static final String TAG = "SplitIt";
 
@@ -38,7 +35,8 @@ public class chatActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        firebaseRef = new Firebase(firebaseroot).child("chat").child(chatId);
+        Firebase.setAndroidContext(getApplicationContext());
+        ref = new Firebase(super.firebaseUrl).child("chat").child(chatId);
 
         // Setup our input methods. Enter key on the keyboard or pushing the send button
         EditText inputText = (EditText)findViewById(R.id.messageInput);
@@ -67,7 +65,7 @@ public class chatActivity extends ListActivity {
         final ListView listView = getListView();
 
         // Tell our list adapter that we only want 50 messages at a time
-        chatListAdapter = new ChatListAdapter(firebaseRef.limit(10), this, R.layout.chat_message, username);
+        chatListAdapter = new ChatListAdapter(ref.limit(20), this, R.layout.chat_message,super.user.getName());
         listView.setAdapter(chatListAdapter);
         chatListAdapter.registerDataSetObserver(new DataSetObserver() {
             @Override
@@ -78,7 +76,7 @@ public class chatActivity extends ListActivity {
         });
 
         // Finally, a little indication of connection status
-        connectedListener = firebaseRef.getRoot().child(".info/connected").addValueEventListener(new ValueEventListener() {
+        connectedListener = ref.getRoot().child(".info/connected").addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -88,16 +86,12 @@ public class chatActivity extends ListActivity {
                 } else {
                    Log.d(TAG,"Disconnected from Firebase");
                 }
-
             }
             @Override
             public void onCancelled(FirebaseError error) {
                 // No-op
             }
-
-
         });
-
     }
 
     private void sendMessage() {
@@ -105,29 +99,10 @@ public class chatActivity extends ListActivity {
         String input = inputText.getText().toString();
         if (!input.equals("")) {
             // Create our 'model', a Chat object
-            Chat chat = new Chat(input, username);
+            Chat chat = new Chat(input, super.user.getName());
             // Create a new, auto-generated child of that chat location, and save our chat data there
-            firebaseRef.push().setValue(chat);
+            ref.push().setValue(chat);
             inputText.setText("");
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.chat, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }

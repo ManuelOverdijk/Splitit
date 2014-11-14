@@ -8,7 +8,8 @@
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
 
     <application
-        android:allowBackup="true"
+        android:name="nl.mprog.studentchoice10374582.ObjectPreference"
+        android:allowBackup="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
@@ -44,6 +45,10 @@
         <activity
             android:name="nl.mprog.studentchoice10374582.MainActivity"
             android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name="nl.mprog.studentchoice10374582.GroupActivity"
+            android:label="@string/title_activity_group" >
         </activity>
     </application>
 

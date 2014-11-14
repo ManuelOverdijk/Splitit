@@ -3,6 +3,7 @@ package nl.mprog.studentchoice10374582;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,7 +19,7 @@ import com.firebase.client.FirebaseError;
 import androidapp.splitit.com.splitit.R;
 
 
-public class RegisterActivity extends Activity {
+public class RegisterActivity extends ActionBarActivity {
 
     private Button mRegisterButton;
     private EditText mEmailEdit;

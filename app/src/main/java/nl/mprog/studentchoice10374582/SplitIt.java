@@ -103,6 +103,7 @@ public class SplitIt extends ActionBarActivity implements
     private Button mRegisterButton;
     private String mGoogleEmail;
 
+    private ObjectPreference objectPreference;
     public User user;
 
 
@@ -111,6 +112,8 @@ public class SplitIt extends ActionBarActivity implements
         super.onCreate(savedInstanceState);
         /* Load the view and display it */
         setContentView(R.layout.activity_main);
+
+        objectPreference = (ObjectPreference) this.getApplication();
 
         /* Load the Facebook login button and set up the session callback */
         mFacebookLoginButton = (LoginButton) findViewById(R.id.login_with_facebook);
@@ -188,8 +191,15 @@ public class SplitIt extends ActionBarActivity implements
         ref.addAuthStateListener(new Firebase.AuthStateListener() {
             @Override
             public void onAuthStateChanged(AuthData authData) {
+                /* TODO: use intent to navigate to main screen */
                 mAuthProgressDialog.hide();
                 setAuthenticatedUser(authData);
+
+                if(authData != null) {
+                    setUser(authData);
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }
@@ -303,32 +313,10 @@ public class SplitIt extends ActionBarActivity implements
             mGoogleLoginButton.setVisibility(View.GONE);
             mPasswordLoginButton.setVisibility(View.GONE);
 
-
+            /* we got a login! */
             if (authData.getProvider().equals("facebook") || authData.getProvider().equals("google")) {
-               Firebase userRef = ref.child("users/" + authData.getUid());
-               ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                   @Override
-                   public void onDataChange(DataSnapshot dataSnapshot) {
-                        if(dataSnapshot != null){
-                            Log.d("","not null");
-                        }
-                       Log.d("",dataSnapshot.toString());
-
-//                       Check if data exits, if not: make new profile
-//                                                if: assign data to our user object and redirect to -> mainActivity. 
-                   }
-
-                   @Override
-                   public void onCancelled(FirebaseError firebaseError) {
-                        Log.d("",firebaseError.getMessage());
-                   }
-               });
+              setUser(authData);
             }
-
-            setUser(authData);
-
-
-
         } else {
             /* No authenticated user show all the login buttons */
             mFacebookLoginButton.setVisibility(View.VISIBLE);
@@ -370,7 +358,7 @@ public class SplitIt extends ActionBarActivity implements
             Log.i(TAG, provider + " auth successful");
             setAuthenticatedUser(authData);
 
-            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(),chatActivity.class);
             startActivity(intent);
 
         }
@@ -525,8 +513,21 @@ public class SplitIt extends ActionBarActivity implements
         }
 
         if(name != null && email != null){
-            user = new User(authData, email,name);
+            User user = new User();
+            user.setName(name);
+            user.setUid(authData.getUid());
+            user.setEmail(email);
+            user.setAuthData(authData);
+            user.setActive(true);
 
+            /* Save new user object to SharedPreferenes */
+            ComplexPreferences complexPrefenreces = objectPreference.getComplexPreference();
+            if(complexPrefenreces != null) {
+                complexPrefenreces.putObject("user", user);
+                complexPrefenreces.commit();
+            } else {
+                android.util.Log.e(TAG, "Preference is null");
+            }
             Firebase userRef = ref.child("users/" + authData.getUid());
             userRef.setValue(user);
         }

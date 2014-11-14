@@ -1,52 +1,51 @@
 package nl.mprog.studentchoice10374582;
 
-/* Created by Manuel 11/08/2014
-   Default User
-*/
-
 import com.firebase.client.AuthData;
 
 public class User {
+    private String          name;
+    private String          email;
+    private boolean         isActive;
+    private AuthData        authData;
+    private String          uid;
 
-    private String email;
-    private String name;
-    private String provider;
-    private String userid;
-
-    private AuthData authData;
-
-    // Required default constructor for Firebase object mapping
-    private User() { }
-
-    User(String userid) {
-        this.userid = userid;
+    public String getName() {
+        return name;
     }
 
-
-    User(AuthData authData, String email, String name) {
-        this.authData = authData;
-        this.userid = authData.getUid();
+    public void setName(String name) {
         this.name = name;
-        this.provider = authData.getProvider();
-        this.email = email;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public String getName() {
-        return name;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getProvider() {
-        return provider;
+    public String getUid() {
+        return uid;
     }
 
-    public String getUserId() {
-        return userid;
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
-    public AuthData getAuthData() { return authData;}
+    public AuthData getAuthData() {
+        return authData;
+    }
 
+    public void setAuthData(AuthData authData) {
+        this.authData = authData;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean isActive) {
+        this.isActive = isActive;
+    }
 }
