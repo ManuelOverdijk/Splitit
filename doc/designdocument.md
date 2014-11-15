@@ -53,7 +53,7 @@ The app will use the Google Support Library V7 to port most of the material desi
 Future: find out whats needed to display bills
 
 ## Wireframe
-![wireframe](http://imgur.com/CH3BzBN,y6jSNUH,RlAFYtE)
+http://imgur.com/CH3BzBN,y6jSNUH,RlAFYtE
 
 ## Optional
 Implement an payment app for in-app paying of the bill. 
