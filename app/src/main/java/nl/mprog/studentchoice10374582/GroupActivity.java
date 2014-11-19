@@ -8,9 +8,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -25,37 +27,21 @@ public class GroupActivity extends MyListActivity {
     private ValueEventListener connectedListener;
     private GroupListAdapter groupListAdapter;
 
-    private String chatId = "100";
     private Firebase ref;
-
     private static final String TAG = "SplitIt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.e("GroupActivity","onCreate");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat);
+        setContentView(R.layout.group_activity);
 
         Firebase.setAndroidContext(getApplicationContext());
-        ref = new Firebase(super.firebaseUrl).child("group").child(chatId);
+        ref = new Firebase(super.firebaseUrl).child("groups");
+        Log.e("GroupActivity",ref.toString());
 
-        // Setup our input methods. Enter key on the keyboard or pushing the send button
-//        EditText inputText = (EditText)findViewById(R.id.messageInput);
-//        inputText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
-//                if (actionId == EditorInfo.IME_NULL && keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
-//                    sendMessage();
-//                }
-//                return true;
-//            }
-//        });
+        android.util.Log.i("SplitIt", "REF = " + ref);
 
-//        findViewById(R.id.sendButton).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                sendMessage();
-//            }
-//        });
     }
 
     @Override
@@ -64,8 +50,7 @@ public class GroupActivity extends MyListActivity {
 
         final ListView listView = getListView();
 
-        // Tell our list adapter that we only want 50 messages at a time
-        groupListAdapter = new GroupListAdapter(ref.limit(20), this, R.layout.group_view,super.user.getName());
+        groupListAdapter = new GroupListAdapter(ref.limit(20), this, R.layout.group_view, super.user.getUid());
         listView.setAdapter(groupListAdapter);
         groupListAdapter.registerDataSetObserver(new DataSetObserver() {
             @Override
@@ -92,7 +77,22 @@ public class GroupActivity extends MyListActivity {
                 // No-op
             }
         });
+
+        listView.setClickable(true);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // When clicked, show a toast with the TextView text or do whatever you need.
+                TextView adminText = (TextView)view.findViewById(R.id.admin);
+                String groupName = (String) adminText.getTag();
+                Toast.makeText(getApplicationContext(),groupName, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        //handle clicks on the listview
     }
+
+
 //
 //    private void sendMessage() {
 //        EditText inputText = (EditText)findViewById(R.id.messageInput);

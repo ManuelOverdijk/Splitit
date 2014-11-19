@@ -64,7 +64,7 @@ public class chatActivity extends MyListActivity {
 
         final ListView listView = getListView();
 
-        // Tell our list adapter that we only want 50 messages at a time
+        // Tell our list adapter that we only want 20 messages at a time
         chatListAdapter = new ChatListAdapter(ref.limit(20), this, R.layout.chat_message,super.user.getName());
         listView.setAdapter(chatListAdapter);
         chatListAdapter.registerDataSetObserver(new DataSetObserver() {

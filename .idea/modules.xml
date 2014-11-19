@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/StudentChoice.iml" filepath="$PROJECT_DIR$/StudentChoice.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/libs/facebook/facebook.iml" filepath="$PROJECT_DIR$/app/libs/facebook/facebook.iml" />
-      <module fileurl="file://$PROJECT_DIR$/nl.mprog.studentchoice10374582.iml" filepath="$PROJECT_DIR$/nl.mprog.studentchoice10374582.iml" />
     </modules>
   </component>
 </project>

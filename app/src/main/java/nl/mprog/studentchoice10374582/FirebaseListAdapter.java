@@ -17,6 +17,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * User: greg
+ * Date: 6/21/13
+ * Time: 1:47 PM
+ */
+
+/**
  * This class is a generic way of backing an Android ListView with a Firebase location.
  * It handles all of the child events at the given Firebase location. It marshals received data into the given
  * class type. Extend this class and provide an implementation of <code>populateView</code>, which will be given an
@@ -50,7 +56,6 @@ public abstract class FirebaseListAdapter<T> extends BaseAdapter {
         inflater = activity.getLayoutInflater();
         models = new ArrayList<T>();
         modelNames = new HashMap<String, T>();
-        
         // Look for all child events. We will then map them to our own internal ArrayList, which backs ListView
         listener = this.ref.addChildEventListener(new ChildEventListener() {
             @Override
@@ -74,10 +79,6 @@ public abstract class FirebaseListAdapter<T> extends BaseAdapter {
                 }
 
                 notifyDataSetChanged();
-            }
-
-            public void onCancelled(FirebaseError error){
-                Log.e("FirebaseListAdapter", "Listen was cancelled, no more updates will occur");
             }
 
             @Override
@@ -130,6 +131,10 @@ public abstract class FirebaseListAdapter<T> extends BaseAdapter {
                 notifyDataSetChanged();
             }
 
+            @Override
+            public void onCancelled(FirebaseError error) {
+                Log.e("FirebaseListAdapter", "Listen was cancelled, no more updates will occur");
+            }
         });
     }
 
