@@ -50,10 +50,17 @@ The app will use the Google Support Library V7 to port most of the material desi
   - Chat: Chat object for storing chat data
   - Group: Group object for storing group data
 
-Future: find out whats needed to display bills
-
 ## Wireframe
-![wireframe](https://github.com/jetsekoopmans/KentekenScan/blob/master/doc/wireframe.png)
+http://imgur.com/CH3BzBN,y6jSNUH,RlAFYtE
 
 ## Optional
-Implement an payment app for in-app paying of the bill. 
+Implement a payment app for in-app paying of the bill.
+Implement pushnotifications for android on:
+	New Chatmessage
+	New Bill
+	New payment
+	Change of bill
+Add contactlist functionality for users
+
+
+	
