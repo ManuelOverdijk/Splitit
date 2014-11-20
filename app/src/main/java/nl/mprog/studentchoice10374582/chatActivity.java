@@ -1,11 +1,11 @@
 package nl.mprog.studentchoice10374582;
 
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
@@ -20,13 +20,15 @@ import com.firebase.client.ValueEventListener;
 import androidapp.splitit.com.splitit.R;
 
 
-public class chatActivity extends MyListActivity {
+public class chatActivity extends MyActionBarActivity {
 
     private ValueEventListener connectedListener;
     private ChatListAdapter chatListAdapter;
 
-    private String chatId = "100";
-    private Firebase ref;
+    private String groupId;
+    private Group group;
+    private Firebase chatRef;
+    private Firebase groupRef;
 
     private static final String TAG = "SplitIt";
 
@@ -36,7 +38,6 @@ public class chatActivity extends MyListActivity {
         setContentView(R.layout.activity_chat);
 
         Firebase.setAndroidContext(getApplicationContext());
-        ref = new Firebase(super.firebaseUrl).child("chat").child(chatId);
 
         // Setup our input methods. Enter key on the keyboard or pushing the send button
         EditText inputText = (EditText)findViewById(R.id.messageInput);
@@ -61,48 +62,94 @@ public class chatActivity extends MyListActivity {
     @Override
     public void onStart(){
         super.onStart();
-
-        final ListView listView = getListView();
-
-        // Tell our list adapter that we only want 20 messages at a time
-        chatListAdapter = new ChatListAdapter(ref.limit(20), this, R.layout.chat_message,super.user.getName());
-        listView.setAdapter(chatListAdapter);
-        chatListAdapter.registerDataSetObserver(new DataSetObserver() {
-            @Override
-            public void onChanged() {
-                super.onChanged();
-                listView.setSelection(chatListAdapter.getCount() - 1);
-            }
-        });
-
-        // Finally, a little indication of connection status
-        connectedListener = ref.getRoot().child(".info/connected").addValueEventListener(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                boolean connected = (Boolean)dataSnapshot.getValue();
-                if (connected) {
-                    Log.d(TAG, "Connected to Firebase");
-                } else {
-                   Log.d(TAG,"Disconnected from Firebase");
-                }
-            }
-            @Override
-            public void onCancelled(FirebaseError error) {
-                // No-op
-            }
-        });
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        /* Get GroupId for fetching chat messages */
+        Intent intent = getIntent();
+        if(intent!=null){
+            this.groupId = intent.getStringExtra("groupId");
+
+            setChatRef(groupId);
+            setGroupRef(groupId);
+
+            // TODO: separate this is some sort of model
+
+            /* Get the group data */
+            groupRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot snapshot) {
+                    group = snapshot.getValue(Group.class);
+
+                    ActionBar ab = getSupportActionBar();
+                    ab.setTitle(group.getTitle());
+                    ab.setSubtitle(group.getAdmin());
+
+                }
+                @Override
+                public void onCancelled(FirebaseError firebaseError) {
+                    System.out.println("The read failed: " + firebaseError.getMessage());
+                }
+            });
+
+            final ListView listView = (ListView)findViewById(R.id.list);
+            //final ListView listView = getListView();
+
+            // TODO: Determine best amount of chat messages to be fetched
+            chatListAdapter = new ChatListAdapter(chatRef.limit(50), this, R.layout.chat_message,super.user.getName());
+            listView.setAdapter(chatListAdapter);
+            chatListAdapter.registerDataSetObserver(new DataSetObserver() {
+                @Override
+                public void onChanged() {
+                    super.onChanged();
+                    listView.setSelection(chatListAdapter.getCount() - 1);
+                }
+            });
+
+            connectedListener = chatRef.getRoot().child(".info/connected").addValueEventListener(new ValueEventListener() {
+
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    boolean connected = (Boolean)dataSnapshot.getValue();
+                    if (connected) {
+                        Log.d(TAG, "Connected to Firebase");
+                    } else {
+                        Log.d(TAG,"Disconnected from Firebase");
+                    }
+                }
+                @Override
+                public void onCancelled(FirebaseError error) {
+                }
+            });
+        } else {
+            Log.e("chatActivity","Error - Intent is null!");
+        }
+    }
+
+
+    /* Handles creation of new chat messages and pushes them to Firebase */
     private void sendMessage() {
         EditText inputText = (EditText)findViewById(R.id.messageInput);
         String input = inputText.getText().toString();
+
         if (!input.equals("")) {
-            // Create our 'model', a Chat object
             Chat chat = new Chat(input, super.user.getName());
-            // Create a new, auto-generated child of that chat location, and save our chat data there
-            ref.push().setValue(chat);
+            /* Save the new chat model to Firebase */
+            chatRef.push().setValue(chat);
             inputText.setText("");
         }
     }
+
+    /* For setting the FirebaseRef, based on which group the Activity is currently in */
+    private void setChatRef(String groupId){
+        this.chatRef = new Firebase(super.firebaseUrl).child("chats").child(groupId);
+    }
+
+    private void setGroupRef(String groupId){
+        this.groupRef = new Firebase(super.firebaseUrl).child("groups").child(groupId);
+    }
+
 }

@@ -15,7 +15,7 @@ import androidapp.splitit.com.splitit.R;
  * data for each individual chat message
  */
 
-public class ChatListAdapter extends FirebaseListAdapter<Chat> {
+public class ChatListAdapter extends FirebaseListAdapterChat<Chat> {
 
     // The username for this client. We use this to indicate which messages originated from this user
     private String username;

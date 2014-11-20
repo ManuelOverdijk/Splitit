@@ -1,7 +1,9 @@
 package nl.mprog.studentchoice10374582;
 
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -22,7 +24,7 @@ import com.firebase.client.ValueEventListener;
 import androidapp.splitit.com.splitit.R;
 
 
-public class GroupActivity extends MyListActivity {
+public class GroupActivity extends MyActionBarActivity {
 
     private ValueEventListener connectedListener;
     private GroupListAdapter groupListAdapter;
@@ -33,22 +35,24 @@ public class GroupActivity extends MyListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.e("GroupActivity","onCreate");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group_activity);
 
+        ActionBar ab = getSupportActionBar();
+        ab.setSubtitle(getResources().getString(R.string.subtitle_activity_group));
+
+        /* Set Firebase reference for fetching grouplist */
         Firebase.setAndroidContext(getApplicationContext());
         ref = new Firebase(super.firebaseUrl).child("groups");
-        Log.e("GroupActivity",ref.toString());
-
-        android.util.Log.i("SplitIt", "REF = " + ref);
-
     }
 
     @Override
     public void onStart(){
         super.onStart();
 
-        final ListView listView = getListView();
+        /* Fetch GroupList and fill the listView */
+        final ListView listView = (ListView)findViewById(R.id.list);
 
         groupListAdapter = new GroupListAdapter(ref.limit(20), this, R.layout.group_view, super.user.getUid());
         listView.setAdapter(groupListAdapter);
@@ -60,7 +64,23 @@ public class GroupActivity extends MyListActivity {
             }
         });
 
-        // Finally, a little indication of connection status
+        /* Handle clicks on ListView's items and start new chatActivity */
+        listView.setClickable(true);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView adminText = (TextView)view.findViewById(R.id.admin);
+                String groupName = (String) adminText.getTag();
+
+                Intent intent = new Intent().setClass(getApplicationContext(),chatActivity.class);
+
+                intent.putExtra("groupId", groupName);
+                startActivity(intent);
+
+                Toast.makeText(getApplicationContext(),groupName, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        /* Firebase connectivity status */
         connectedListener = ref.getRoot().child(".info/connected").addValueEventListener(new ValueEventListener() {
 
             @Override
@@ -77,32 +97,5 @@ public class GroupActivity extends MyListActivity {
                 // No-op
             }
         });
-
-        listView.setClickable(true);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // When clicked, show a toast with the TextView text or do whatever you need.
-                TextView adminText = (TextView)view.findViewById(R.id.admin);
-                String groupName = (String) adminText.getTag();
-                Toast.makeText(getApplicationContext(),groupName, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-        //handle clicks on the listview
     }
-
-
-//
-//    private void sendMessage() {
-//        EditText inputText = (EditText)findViewById(R.id.messageInput);
-//        String input = inputText.getText().toString();
-//        if (!input.equals("")) {
-//            // Create our 'model', a Chat object
-//            Chat chat = new Chat(input, super.user.getName());
-//            // Create a new, auto-generated child of that chat location, and save our chat data there
-//            ref.push().setValue(chat);
-//            inputText.setText("");
-//        }
-//    }
 }

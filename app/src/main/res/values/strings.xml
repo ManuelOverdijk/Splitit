@@ -17,6 +17,11 @@
     <string name="firebase_url">https://studentchoice.firebaseio.com</string>
     <string name="facebook_app_id">1536895936528105</string>
     <string name="title_activity_register">Register an account</string>
-    <string name="title_activity_group">GroupActivity</string>
+
+    /* GroupActivity */
+    <string name="title_activity_group">SplitIt</string>
+    <string name="subtitle_activity_group">groupview</string>
+
+
 
 </resources>

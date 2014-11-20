@@ -52,7 +52,6 @@ import androidapp.splitit.com.splitit.R;
  * Facebook provides its own API via the {@link com.facebook.widget.LoginButton}.
  * Google provides its own API via the {@link com.google.android.gms.common.api.GoogleApiClient}.
  * Twitter requires us to use a Web View to authenticate, see
- *      {@link com.firebase.samples.logindemo.TwitterOAuthActivity}
  * Email/Password is provided using {@link com.firebase.client.Firebase}
  * Anonymous is provided using {@link com.firebase.client.Firebase}
  */
@@ -293,13 +292,7 @@ public class SplitIt extends ActionBarActivity implements
             showErrorDialog(options.get("error"));
         } else {
             mAuthProgressDialog.show();
-            if (provider.equals("twitter")) {
-                // if the provider is twitter, we pust pass in additional options, so use the options endpoint
-                ref.authWithOAuthToken(provider, options, new AuthResultHandler(provider));
-            } else {
-                // if the provider is not twitter, we just need to pass in the oauth_token
-                ref.authWithOAuthToken(provider, options.get("oauth_token"), new AuthResultHandler(provider));
-            }
+            ref.authWithOAuthToken(provider, options.get("oauth_token"), new AuthResultHandler(provider));
         }
     }
 
@@ -387,11 +380,14 @@ public class SplitIt extends ActionBarActivity implements
 
     /* A helper method to resolve the current ConnectionResult error. */
     private void resolveSignInError() {
+        Log.e("GoogleAPI","Resolving signin error");
         if (mGoogleConnectionResult.hasResolution()) {
             try {
+                Log.e("GoogleAPI","Resolving signin error 1");
                 mGoogleIntentInProgress = true;
                 mGoogleConnectionResult.startResolutionForResult(this, RC_GOOGLE_LOGIN);
             } catch (IntentSender.SendIntentException e) {
+                Log.e("GoogleAPI","Resolving signin error 2");
                 // The intent was canceled before it was sent.  Return to the default
                 // state and attempt to connect to get an updated ConnectionResult.
                 mGoogleIntentInProgress = false;
@@ -470,7 +466,8 @@ public class SplitIt extends ActionBarActivity implements
                  * or they cancel. */
                 resolveSignInError();
             } else {
-                Log.e(TAG, result.toString());
+
+                Log.e("ERROR", result.toString());
             }
         }
     }

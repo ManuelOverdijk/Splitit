@@ -26,10 +26,10 @@ public class GroupListAdapter extends FirebaseListAdapterGroup {
         String admin = group.getAdmin();
         String title = group.getTitle();
         TextView adminText = (TextView)view.findViewById(R.id.admin);
-          adminText.setTag(String.valueOf(group.getId()));
+        adminText.setTag(String.valueOf(group.getId()));
 //        adminText.setTag();
-        adminText.setText(admin);
-        ((TextView)view.findViewById(R.id.title)).setText(title);
+        adminText.setText(title);
+        ((TextView)view.findViewById(R.id.title)).setText(admin);
 
     }
 
