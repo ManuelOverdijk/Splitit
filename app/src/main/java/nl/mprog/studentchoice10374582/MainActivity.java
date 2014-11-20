@@ -5,9 +5,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import androidapp.splitit.com.splitit.R;
-
-
 public class MainActivity extends MyActionBarActivity {
     private final String TAG = "SecondActivity";
     private ObjectPreference objectPreference;

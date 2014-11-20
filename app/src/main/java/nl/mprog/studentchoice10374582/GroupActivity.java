@@ -21,9 +21,6 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
-import androidapp.splitit.com.splitit.R;
-
-
 public class GroupActivity extends MyActionBarActivity {
 
     private ValueEventListener connectedListener;

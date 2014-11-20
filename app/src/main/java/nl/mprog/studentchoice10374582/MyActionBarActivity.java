@@ -13,8 +13,6 @@ import com.firebase.client.Firebase;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.plus.Plus;
 
-import androidapp.splitit.com.splitit.R;
-
 /**
  * Created by manuel on 14-11-14.
  */

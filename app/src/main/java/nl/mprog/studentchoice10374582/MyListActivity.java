@@ -11,8 +11,6 @@ import com.facebook.Session;
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 
-import androidapp.splitit.com.splitit.R;
-
 /**
  * Created by manuel on 14-11-14.
  */

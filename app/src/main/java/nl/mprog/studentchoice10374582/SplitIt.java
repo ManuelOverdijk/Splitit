@@ -40,8 +40,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import androidapp.splitit.com.splitit.R;
-
 /**
  * This application demos the use of the Firebase Login feature. It currently supports logging in
  * with Google, Facebook, Twitter, Email/Password, and Anonymous providers.

@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.TextView;
 import com.firebase.client.Query;
 
-import androidapp.splitit.com.splitit.R;
 
 /* https://github.com/firebase/AndroidChat/blob/master/src/com/firebase/androidchat/ChatListAdapter.java */
 

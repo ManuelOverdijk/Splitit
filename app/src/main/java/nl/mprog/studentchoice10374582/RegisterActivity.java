@@ -16,9 +16,6 @@ import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 
-import androidapp.splitit.com.splitit.R;
-
-
 public class RegisterActivity extends ActionBarActivity {
 
     private Button mRegisterButton;
