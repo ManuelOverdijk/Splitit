@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import com.facebook.Session;
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.plus.Plus;
 
 import androidapp.splitit.com.splitit.R;
@@ -18,12 +19,19 @@ import androidapp.splitit.com.splitit.R;
  * Created by manuel on 14-11-14.
  */
 public class MyActionBarActivity extends ActionBarActivity {
+
     public ObjectPreference objectPreference;
+
     public User user;
     private Boolean loggedin;
+
     String firebaseUrl;
     private Firebase ref;
     private AuthData authData;
+
+    private GoogleApiClient mGoogleApiClient;
+    private boolean mGoogleIntentInProgress;
+    private boolean mGoogleLoginClicked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,15 +106,20 @@ public class MyActionBarActivity extends ActionBarActivity {
                 }
             } else if (this.authData.getProvider().equals("google")) {
                 /* Logout from Google+ */
-//                if (mGoogleApiClient.isConnected()) {
-//                    Plus.AccountApi.clearDefaultAccount(mGoogleApiClient);
-//                    mGoogleApiClient.disconnect();
-//                }
+                if (mGoogleApiClient.isConnected()) {
+                    Plus.AccountApi.clearDefaultAccount(mGoogleApiClient);
+                    mGoogleApiClient.disconnect();
+                }
             }
             /* Update authenticated user and show login buttons */
 
+            this.authData = null;
+            this.user = null;
+            this.loggedin = false;
+
             Intent intent = new Intent(getApplicationContext(), SplitIt.class);
             startActivity(intent);
+
         }
     }
 }
