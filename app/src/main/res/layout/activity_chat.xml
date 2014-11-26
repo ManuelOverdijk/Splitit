@@ -5,7 +5,9 @@
     android:layout_height="fill_parent"
 
     tools:context=".MainActivity"
-    >
+    android:orientation="horizontal">
+
+    <include layout="@layout/toolbar"/>
 
     <ListView
         android:id="@+id/list"

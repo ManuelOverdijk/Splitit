@@ -4,7 +4,8 @@
     by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
 -->
 <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
-    <!--
+    <!--<item name="drawerArrowStyle">@style/DrawerArrowStyle</item>-->
+        <!--
         Theme customizations available in newer API levels can go in
         res/values-vXX/styles.xml, while customizations related to
         backward-compatibility can go here.
@@ -19,6 +20,7 @@
     <item name="android:textColorPrimary">@color/bright_foreground_inverse_material_light</item>
     <item name="android:windowBackground">@color/background_material_light</item>
     <item name="android:buttonStyle">@style/Button</item>
+    <item name="windowActionBar">false</item>
 <!-- All customizations that are NOT specific to a particular API-level can go here. -->
 <!-- <item name="android:actionBarStyle">@style/AppBaseActionBar</item> -->
 </style>

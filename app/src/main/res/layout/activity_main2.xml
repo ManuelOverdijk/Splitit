@@ -17,11 +17,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
-            <com.example.android.common.view.SlidingTabLayout
+            <nl.mprog.studentchoice10374582.SlidingTab.SlidingTabLayout
                 android:id="@+id/sliding_tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
+
     </android.support.v7.widget.Toolbar>
 
     <android.support.v4.view.ViewPager

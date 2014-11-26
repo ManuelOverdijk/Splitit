@@ -48,7 +48,7 @@ public abstract class FirebaseListAdapterGroup extends BaseAdapter {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
                 Log.e("Firebase",userId);
-                String groupId = dataSnapshot.getName();
+                String groupId = dataSnapshot.getKey();
 //                dataSnapshot.chi
                 Map participants = dataSnapshot.child("participants").getValue(Map.class);
                 Log.e("Name", participants.toString());

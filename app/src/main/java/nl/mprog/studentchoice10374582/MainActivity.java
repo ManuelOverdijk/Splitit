@@ -1,17 +1,19 @@
 package nl.mprog.studentchoice10374582;
 
-import android.support.v4.app.FragmentTransaction;
+//import com.example.android.common.view.SlidingTabLayout;
+
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import nl.mprog.studentchoice10374582.SlidingTab.SlidingTabLayout;
 
 public class MainActivity extends MyActionBarActivity {
     static final String LOG_TAG = "SlidingTabsBasicFragment";
@@ -23,7 +25,6 @@ public class MainActivity extends MyActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
 
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mViewPager.setAdapter(new SamplePagerAdapter());

@@ -36,8 +36,6 @@ public class MyActionBarActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
-        setSupportActionBar(toolbar);
 
         objectPreference = (ObjectPreference) this.getApplication();
         ComplexPreferences complexPreferences = objectPreference.getComplexPreference();

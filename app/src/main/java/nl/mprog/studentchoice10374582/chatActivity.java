@@ -81,9 +81,9 @@ public class chatActivity extends MyActionBarActivity {
                 public void onDataChange(DataSnapshot snapshot) {
                     group = snapshot.getValue(Group.class);
 
-                    ActionBar ab = getSupportActionBar();
-                    ab.setTitle(group.getTitle());
-                    ab.setSubtitle(group.getAdmin());
+//                    ActionBar ab = getSupportActionBar();
+//                    ab.setTitle(group.getTitle());
+//                   ab.setSubtitle(group.getAdmin());
 
                 }
                 @Override
