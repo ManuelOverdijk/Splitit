@@ -82,7 +82,7 @@ public class RegisterActivity extends ActionBarActivity {
                     ref.authWithPassword(mEmail, mPassword, new Firebase.AuthResultHandler() {
                         @Override
                         public void onAuthenticated(AuthData authData) {
-                            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                            Intent intent = new Intent(getApplicationContext(),GroupActivity.class);
                             startActivity(intent);
 
                         }
