@@ -194,7 +194,7 @@ public class SplitIt extends ActionBarActivity implements
 
                 if(authData != null) {
                     setUser(authData);
-                    Intent intent = new Intent(getApplicationContext(), GroupActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                 }
             }

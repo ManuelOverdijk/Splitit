@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
 
     <application
-        android:name=".ObjectPreference"
+        android:name="nl.mprog.studentchoice10374582.ObjectPreference"
         android:allowBackup="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -21,7 +21,7 @@
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name=".SplitIt"
+            android:name="nl.mprog.studentchoice10374582.SplitIt"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,27 +31,27 @@
         </activity>
         <activity android:name="com.facebook.LoginActivity" />
         <activity
-            android:name=".chatActivity"
+            android:name="nl.mprog.studentchoice10374582.chatActivity"
             android:label="@string/title_activity_chat" >
         </activity>
         <activity
-            android:name=".Register"
+            android:name="nl.mprog.studentchoice10374582.Register"
             android:label="@string/title_activity_register" >
         </activity>
         <activity
-            android:name=".RegisterActivity"
+            android:name="nl.mprog.studentchoice10374582.RegisterActivity"
             android:label="@string/title_activity_register" >
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="nl.mprog.studentchoice10374582.MainActivity"
             android:label="@string/title_activity_main" >
         </activity>
         <activity
-            android:name=".GroupActivity"
+            android:name="nl.mprog.studentchoice10374582.GroupActivity"
             android:label="@string/title_activity_group" >
         </activity>
         <activity
-            android:name=".ViewPager"
+            android:name="nl.mprog.studentchoice10374582.ViewPager"
             android:label="@string/title_activity_view_pager" >
         </activity>
     </application>

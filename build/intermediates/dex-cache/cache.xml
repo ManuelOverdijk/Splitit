@@ -2,42 +2,6 @@
 <pre-dex-items>
 
     <item
-        dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/firebase-client-jvm-2.0.2-d34b795e37aa4014fdd2f86d4a1fee0923ac7e11.jar"
-        jar="/Users/manuel/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-jvm/2.0.2/35fde3880e451c584dc48d3803a0e3984b828695/firebase-client-jvm-2.0.2.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="35fde3880e451c584dc48d3803a0e3984b828695"/>
-    <item
-        dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/classes-5f4f53e3ad1782ff25d7e6364c3eb0535d5ef296.jar"
-        jar="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="0f6d5c1ef2e982c3b7858408e3df389cf5d202da"/>
-    <item
-        dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/tubesock-0.0.10-d021ab5d7afadc82f780b431ea4fe2ed42a93643.jar"
-        jar="/Users/manuel/.gradle/caches/modules-2/files-2.1/com.firebase/tubesock/0.0.10/ddce2c65136c1de8000f8932d8b7ab16d5d336b9/tubesock-0.0.10.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="ddce2c65136c1de8000f8932d8b7ab16d5d336b9"/>
-    <item
-        dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.0-bdd5fb521cc99c01ecd186b46c9823e01324028a.jar"
-        jar="/Users/manuel/android/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e"/>
-    <item
-        dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/classes-fc72e8667aef8746f756033b95df88b03ca8086c.jar"
-        jar="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="95fd37732ec852e99f07eeb516a3650172f1d136"/>
-    <item
-        dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/classes-dfcab6b4976533c914b0363540f1c439c055eaf2.jar"
-        jar="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/exploded-aar/StudentChoice/facebook/unspecified/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="f38baeb519a017070d846c69069a0f0b4f5db146"/>
-    <item
         dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/jackson-core-2.2.2-cd155e2a60dedb3a57ec42e4c5f7389eb2942233.jar"
         jar="/Users/manuel/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.2/d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b/jackson-core-2.2.2.jar"
         jumboMode="false"
@@ -80,11 +44,35 @@
         revision="20.0.0"
         sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0"/>
     <item
+        dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/firebase-client-jvm-2.0.2-d34b795e37aa4014fdd2f86d4a1fee0923ac7e11.jar"
+        jar="/Users/manuel/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-jvm/2.0.2/35fde3880e451c584dc48d3803a0e3984b828695/firebase-client-jvm-2.0.2.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="35fde3880e451c584dc48d3803a0e3984b828695"/>
+    <item
+        dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/classes-20b67e53eeef790ddf21d58a7ff461528f08ff62.jar"
+        jar="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/exploded-aar/com.astuetz/pagerslidingtabstrip/1.0.1/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="7912610ed96381c25c36d986eba422731b9641b6"/>
+    <item
         dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/classes-4e4973db00efae3175c0028305686c3c447e264d.jar"
         jar="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.0/classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="efeda77c808750cb670ee9c48d8a1835d89dbcb2"/>
+    <item
+        dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/classes-5f4f53e3ad1782ff25d7e6364c3eb0535d5ef296.jar"
+        jar="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="0f6d5c1ef2e982c3b7858408e3df389cf5d202da"/>
+    <item
+        dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/tubesock-0.0.10-d021ab5d7afadc82f780b431ea4fe2ed42a93643.jar"
+        jar="/Users/manuel/.gradle/caches/modules-2/files-2.1/com.firebase/tubesock/0.0.10/ddce2c65136c1de8000f8932d8b7ab16d5d336b9/tubesock-0.0.10.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="ddce2c65136c1de8000f8932d8b7ab16d5d336b9"/>
     <item
         dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/classes-625c879772bd67f5b0b5cad1cdaccc4bc2a4dcc0.jar"
         jar="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/classes.jar"
@@ -92,11 +80,29 @@
         revision="20.0.0"
         sha1="686344a780033e4ba22b926cd225f8d4941247e6"/>
     <item
+        dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.0-bdd5fb521cc99c01ecd186b46c9823e01324028a.jar"
+        jar="/Users/manuel/android/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e"/>
+    <item
         dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.0-0f1cb3429698cc199c5d0e503c84a400285081cb.jar"
         jar="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/exploded-aar/com.android.support/support-v13/21.0.0/libs/internal_impl-21.0.0.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="5a8e01742aee890c56fe638ea7c921b91a3fdc62"/>
+    <item
+        dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/classes-fc72e8667aef8746f756033b95df88b03ca8086c.jar"
+        jar="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="95fd37732ec852e99f07eeb516a3650172f1d136"/>
+    <item
+        dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/classes-dfcab6b4976533c914b0363540f1c439c055eaf2.jar"
+        jar="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/exploded-aar/StudentChoice/facebook/unspecified/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f38baeb519a017070d846c69069a0f0b4f5db146"/>
     <item
         dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.2-c095b1714fc4fdfa5e29ed3adc50dd4e0bec8c89.jar"
         jar="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/exploded-aar/StudentChoice/facebook/unspecified/libs/bolts-android-1.1.2.jar"
