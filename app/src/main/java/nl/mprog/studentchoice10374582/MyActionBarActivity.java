@@ -92,8 +92,7 @@ public class MyActionBarActivity extends ActionBarActivity {
 
             /* logout of Firebase */
             ref.unauth();
-            /* Logout of any of the Frameworks. This step is optional, but ensures the user is not logged into
-             * Facebook/Google+ after logging out of Firebase. */
+
             if (this.authData.getProvider().equals("facebook")) {
                 /* Logout from Facebook */
                 Session session = Session.getActiveSession();
@@ -113,8 +112,8 @@ public class MyActionBarActivity extends ActionBarActivity {
                     mGoogleApiClient.disconnect();
                 }
             }
-            /* Update authenticated user and show login buttons */
 
+            /* Update authenticated user and show login buttons */
             this.authData = null;
             this.user = null;
             this.loggedin = false;
