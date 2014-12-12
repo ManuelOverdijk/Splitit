@@ -37,6 +37,13 @@
         <dex dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/firebase-client-jvm-2.0.3-3f7023a3d9f096fe5e849ea2eb1dd8592b75f561.jar" />
     </item>
     <item
+        jar="/Users/manuel/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.3.2/d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27/picasso-2.3.2.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27">
+        <dex dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/picasso-2.3.2-f5fe13fa883aae7ee5ca0632a3ce8c1b3538e655.jar" />
+    </item>
+    <item
         jar="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/exploded-aar/com.android.support/support-v13/21.0.0/classes.jar"
         jumboMode="false"
         revision="20.0.0"
@@ -89,7 +96,7 @@
         jar="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/exploded-aar/StudentChoice/facebook/unspecified/classes.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="dacb1d700a1c4e5ebf101567495f903dfed78a83">
+        sha1="7be03e822ed5f92d7cacdc5fb7f5e6628fbdd15f">
         <dex dex="/Users/manuel/Mprog/StudentChoice/app/build/intermediates/pre-dexed/debug/classes-dfcab6b4976533c914b0363540f1c439c055eaf2.jar" />
     </item>
     <item

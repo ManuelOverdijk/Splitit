@@ -28,6 +28,10 @@ public class BillListAdapterFragment extends FirebaseListAdapterBill{
         TextView authorText = (TextView)view.findViewById(R.id.author);
         authorText.setText(author + ":");
 
+        TextView billId = (TextView)view.findViewById((R.id.billId));
+
+        billId.setText(bill.getId());
+
         authorText.setTextColor(Color.BLUE);
 
         ((TextView)view.findViewById(R.id.message)).setText(bill.getTitle());

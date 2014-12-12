@@ -63,7 +63,7 @@ public class MyActionBarActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         /* If a user is currently authenticated, display a logout menu */
-        if (isLoggedIn()) {
+            if (isLoggedIn()) {
             getMenuInflater().inflate(R.menu.main, menu);
             return true;
         } else {
@@ -87,6 +87,9 @@ public class MyActionBarActivity extends ActionBarActivity {
 
     private void logout() {
         if (this.authData != null) {
+
+            mGoogleApiClient = new GoogleApiClient.Builder(this).addApi(Plus.API).build();
+
             /* logout of Firebase */
             ref.unauth();
             /* Logout of any of the Frameworks. This step is optional, but ensures the user is not logged into
