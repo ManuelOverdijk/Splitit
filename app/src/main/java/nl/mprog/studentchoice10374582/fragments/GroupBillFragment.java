@@ -113,12 +113,14 @@ public class GroupBillFragment extends Fragment {
         final ListView listView = (ListView) getView().findViewById(R.id.list);
 
 
+        /* Fetch 10 bills from database, based on the GroupID */
         billListAdapter = new BillListAdapter(billRef.limit(10), this, R.layout.bill_layout, user.getName());
         listView.setAdapter(billListAdapter);
         billListAdapter.registerDataSetObserver(new DataSetObserver() {
             @Override
             public void onChanged() {
                 super.onChanged();
+                /* Fill the Bill ListView */
                 listView.setSelection(billListAdapter.getCount() - 1);
             }
         });
@@ -157,8 +159,8 @@ public class GroupBillFragment extends Fragment {
             }
         });
 
+        /* Handle clicks on newBill button and start new NewBillActivity */
         Button mNewBill = (Button) getView().findViewById(R.id.btNewBill);
-
         mNewBill.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -176,6 +178,7 @@ public class GroupBillFragment extends Fragment {
         this.billRef = new Firebase(firebaseUrl).child("bills").child(groupId);
     }
 
+    /* For setting the FirebaseRef, based on which group the Activity is currently in */
     private void setGroupRef(String groupId){
         this.groupRef = new Firebase(firebaseUrl).child("groups").child(groupId);
     }

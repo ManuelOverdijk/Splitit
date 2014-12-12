@@ -82,9 +82,6 @@ public class GroupInfoFragment extends Fragment {
         user = complexPreferences.getObject("user", User.class);
         authData = user.getAuthData();
 
-
-
-        Log.e("TAG", "onCreate ChatFragment");
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -105,10 +102,11 @@ public class GroupInfoFragment extends Fragment {
 
                 alert.setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        // parse data from EditText.
+
                         String participant = input.getText().toString();
                         if(!TextUtils.isEmpty(participant)){
-                            Log.e("particapnt",participant);
+
+                            /* Add a participant to our group, and push it to Firebase */
                             participants.put(participant.toString(), "true");
                             group.setParticipants(participants);
                             groupRef.setValue(group);
@@ -118,7 +116,6 @@ public class GroupInfoFragment extends Fragment {
 
                 alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        // do nothing
                     }
                 });
 
@@ -144,6 +141,8 @@ public class GroupInfoFragment extends Fragment {
                         // parse data from EditText.
                         String title = input.getText().toString();
                         if (!TextUtils.isEmpty(title)) {
+
+                            /* Change group Title and push it to Firebase */
                             group.setTitle(title);
                             groupRef.setValue(group);
                         }
@@ -152,7 +151,6 @@ public class GroupInfoFragment extends Fragment {
 
                 alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        // do nothing
                     }
                 });
 
@@ -168,13 +166,12 @@ public class GroupInfoFragment extends Fragment {
 
         setGroupRef(groupId);
 
-
         /* Get the group data */
         groupRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
 
-                // check if group or participant!
+
                 group = snapshot.getValue(Group.class);
                 group.setId(groupId);
 
@@ -186,6 +183,8 @@ public class GroupInfoFragment extends Fragment {
 
                  participants = group.getParticipants();
 
+
+                /* Bind our ListView to the adapter, to fetch it Participants */
                 ListView list = (ListView)linearlayout.findViewById(R.id.listViewParticipants);
                 ParticipantsAdapter adapter = new ParticipantsAdapter(getActivity(),group.getParticipants());
                 list.setAdapter(adapter);
@@ -245,15 +244,9 @@ public class GroupInfoFragment extends Fragment {
             if(convertView == null){
                 convertView = mInflater.inflate(R.layout.participant_item, null);
 
-                Log.e("TAG","Position: "+position);
-                Log.e("TAG",participants.toString());
-//                Log.e("TAG","contains: " + participants.containsKey(0));
-//                Log.e("TAG",participants.get(0).toString());
-
                 TextView tvTitle = (TextView) convertView.findViewById(R.id.title);
                 tvTitle.setText(getItem(position));
             }
-
             return convertView;
         }
     }
