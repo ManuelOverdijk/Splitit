@@ -7,7 +7,7 @@ I have not yet implemented usernames, so all mapping is done on FirebaseId's. Us
 The drawer in GroupActivity is implemented, but not yet functional. 
 
 ## Database
-Email me at manuel.overdijk@gmail.com for access
+Email me at manuel.overdijk@gmail.com and I can add you to the users list. 
 
 ## Design document
 https://github.com/ManuelOverdijk/Splitit/blob/master/doc/designdocument.md
