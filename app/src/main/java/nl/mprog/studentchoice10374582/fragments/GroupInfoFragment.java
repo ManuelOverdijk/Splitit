@@ -221,7 +221,6 @@ public class GroupInfoFragment extends Fragment {
 
         @Override
         public int getCount() {
-            // TODO Auto-generated method stub
             return participants.size();
         }
 

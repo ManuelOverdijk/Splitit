@@ -126,8 +126,6 @@ public class GroupChatFragment extends Fragment {
         setChatRef(groupId);
         setGroupRef(groupId);
 
-        // TODO: separate this is some sort of model
-
         /* Get the group data */
         groupRef.addValueEventListener(new ValueEventListener() {
             @Override
