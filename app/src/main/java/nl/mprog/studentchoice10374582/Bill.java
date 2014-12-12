@@ -1,9 +1,5 @@
 package nl.mprog.studentchoice10374582;
 
-
-import android.util.Log;
-
-import java.util.Date;
 import java.util.Map;
 
 public class Bill {
@@ -25,7 +21,6 @@ public class Bill {
         this.title = title;
         this.admin = admin;
     }
-
 
     public String getTitle() {
         return title;
@@ -54,6 +49,10 @@ public class Bill {
     public void setTitle(String title){
         this.title = title;
     }
+
+    public void setCreated(Long c) { this.created = c;}
+
+    public Long getCreated() { return created;}
 
     public void setAdmin(String admin){
         this.admin = admin;

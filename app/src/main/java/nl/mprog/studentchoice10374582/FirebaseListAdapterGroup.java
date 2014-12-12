@@ -49,7 +49,7 @@ public abstract class FirebaseListAdapterGroup extends BaseAdapter {
             public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
                 Log.e("Firebase",userId);
                 String groupId = dataSnapshot.getKey();
-//                dataSnapshot.chi
+
                 Map participants = dataSnapshot.child("participants").getValue(Map.class);
 
                 Boolean isEmpty = true;

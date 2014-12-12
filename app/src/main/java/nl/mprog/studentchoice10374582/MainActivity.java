@@ -186,8 +186,7 @@ public class MainActivity extends FragmentActivity {
                 case 1:
                     return GroupChatFragment.newInstance(groupId);
                 case 2:
-//                    return GroupBillFragment.newInstance(groupId);
-                    return null;
+                    return GroupBillFragment.newInstance(groupId);
                 default:
                     return null;
             }

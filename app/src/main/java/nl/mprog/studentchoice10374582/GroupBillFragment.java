@@ -7,15 +7,11 @@ import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.firebase.client.AuthData;
 import com.firebase.client.DataSnapshot;
@@ -26,7 +22,7 @@ import com.firebase.client.ValueEventListener;
 public class GroupBillFragment extends Fragment {
 
     private ValueEventListener connectedListener;
-    private ChatListAdapterFragment chatListAdapterFragment;
+    private BillListAdapterFragment billListAdapterFragment;
 
     private String groupId;
     private Group group;
@@ -105,13 +101,14 @@ public class GroupBillFragment extends Fragment {
 
 
         // TODO: Determine best amount of chat messages to be fetched
-        chatListAdapterFragment = new ChatListAdapterFragment(billRef.limit(10), this, R.layout.bill_layout, user.getName());
-        listView.setAdapter(chatListAdapterFragment);
-        chatListAdapterFragment.registerDataSetObserver(new DataSetObserver() {
+        Log.e("billref",billRef.toString());
+        billListAdapterFragment = new  BillListAdapterFragment(billRef.limit(10), this, R.layout.bill_layout, user.getName());
+        listView.setAdapter(billListAdapterFragment);
+        billListAdapterFragment.registerDataSetObserver(new DataSetObserver() {
             @Override
             public void onChanged() {
                 super.onChanged();
-                listView.setSelection(chatListAdapterFragment.getCount() - 1);
+                listView.setSelection(billListAdapterFragment.getCount() - 1);
             }
         });
 

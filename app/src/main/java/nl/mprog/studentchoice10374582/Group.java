@@ -58,7 +58,6 @@ public class Group {
     }
 
     public void setId(String id) {
-        Log.e("Group", "Setting name");
         this.id = id;
     }
 

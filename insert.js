@@ -43,7 +43,7 @@ var data1 = {
 
 var firebaseRef = new Firebase(settings.firebaseRoot);
 var announcementRef = firebaseRef.child("bills").child("-Jcxvruekex7EOMiIUZ_");
-announcementRef.set(data1);
+announcementRef.push(data1);
 // announcementRef.push(data1);
 // announcementRef.push(data);
 // announcementRef.push(data);

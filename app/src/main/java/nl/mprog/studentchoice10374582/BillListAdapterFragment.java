@@ -8,13 +8,14 @@ import android.widget.TextView;
 import com.firebase.client.Query;
 
 
-public class BillListAdapterFragment extends FirebaseListAdapterBill<Bill> {
+public class BillListAdapterFragment extends FirebaseListAdapterBill{
 
     // The username for this client. We use this to determine if the username is the admin, and display the appropriote controls.
     private String username;
 
     public BillListAdapterFragment(Query ref, Fragment fragment, int layout, String username) {
-        super(ref, Bill.class, layout, fragment.getActivity());
+//        super(ref, Bill.class, layout, fragment.getActivity());
+        super(ref, layout, fragment.getActivity(), username);
         this.username = username;
     }
 
