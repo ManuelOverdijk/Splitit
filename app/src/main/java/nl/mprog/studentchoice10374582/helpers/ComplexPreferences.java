@@ -1,14 +1,24 @@
-package nl.mprog.studentchoice10374582.helpers;
-
-/**
- * Created by manuel on 13-11-14.
+/** Native App Studio
+ *
+ * SplitIt - Student's choice
+ *
+ * Author: Manuel Overdijk
+ *         manuel.overdijk@gmail.com
+ *         Uva id: 10374582
+ *
+ * December 2014
  */
 
-import java.lang.reflect.Type;
+package nl.mprog.studentchoice10374582.helpers;
+
+
 import android.content.Context;
 import android.content.SharedPreferences;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 
 
 /* Class for saving JSON objects to SharedPreferances */

@@ -1,3 +1,14 @@
+/** Native App Studio
+ *
+ * SplitIt - Student's choice
+ *
+ * Author: Manuel Overdijk
+ *         manuel.overdijk@gmail.com
+ *         Uva id: 10374582
+ *
+ * December 2014
+ */
+
 package nl.mprog.studentchoice10374582.adapters;
 
 import android.app.Activity;
@@ -6,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.FirebaseError;

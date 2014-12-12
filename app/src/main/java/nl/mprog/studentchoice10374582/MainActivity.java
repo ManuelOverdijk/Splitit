@@ -1,20 +1,29 @@
+/** Native App Studio
+ *
+ * SplitIt - Student's choice
+ *
+ * Author: Manuel Overdijk
+ *         manuel.overdijk@gmail.com
+ *         Uva id: 10374582
+ *
+ * December 2014
+ */
+
 package nl.mprog.studentchoice10374582;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-
-
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.util.TypedValue;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.firebase.client.AuthData;

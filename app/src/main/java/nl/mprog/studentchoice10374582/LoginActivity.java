@@ -1,3 +1,14 @@
+/** Native App Studio
+ *
+ * SplitIt - Student's choice
+ *
+ * Author: Manuel Overdijk
+ *         manuel.overdijk@gmail.com
+ *         Uva id: 10374582
+ *
+ * December 2014
+ */
+
 package nl.mprog.studentchoice10374582;
 
 import android.app.AlertDialog;
@@ -12,7 +23,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;

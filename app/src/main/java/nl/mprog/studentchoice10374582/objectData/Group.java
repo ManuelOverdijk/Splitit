@@ -1,10 +1,7 @@
 package nl.mprog.studentchoice10374582.objectData;
 
 
-import android.util.Log;
-
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 public class Group {

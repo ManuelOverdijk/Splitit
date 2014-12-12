@@ -1,3 +1,14 @@
+/** Native App Studio
+ *
+ * SplitIt - Student's choice
+ *
+ * Author: Manuel Overdijk
+ *         manuel.overdijk@gmail.com
+ *         Uva id: 10374582
+ *
+ * December 2014
+ */
+
 package nl.mprog.studentchoice10374582.fragments;
 
 /**
@@ -26,11 +37,11 @@ import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
 import nl.mprog.studentchoice10374582.BillActivity;
+import nl.mprog.studentchoice10374582.NewBillActivity;
+import nl.mprog.studentchoice10374582.R;
 import nl.mprog.studentchoice10374582.adapters.BillListAdapter;
 import nl.mprog.studentchoice10374582.helpers.ComplexPreferences;
-import nl.mprog.studentchoice10374582.NewBillActivity;
 import nl.mprog.studentchoice10374582.helpers.ObjectPreference;
-import nl.mprog.studentchoice10374582.R;
 import nl.mprog.studentchoice10374582.objectData.Group;
 import nl.mprog.studentchoice10374582.objectData.User;
 

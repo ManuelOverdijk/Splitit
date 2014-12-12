@@ -1,3 +1,14 @@
+/** Native App Studio
+ *
+ * SplitIt - Student's choice
+ *
+ * Author: Manuel Overdijk
+ *         manuel.overdijk@gmail.com
+ *         Uva id: 10374582
+ *
+ * December 2014
+ */
+
 package nl.mprog.studentchoice10374582;
 
 /**
@@ -139,18 +150,15 @@ public class NewGroupActivity extends MyActionBarActivity {
                     if(mParticipants.containsKey(title)){
                         Log.e("Key","Contains key!");
                     } else {
-                        Log.e("Key","Loggin key");
                         mParticipants.put(title,"true");
-
                     }
-
                 }
             }
         });
 
         alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
-                // do nothing
+
             }
         });
 
@@ -177,7 +185,7 @@ public class NewGroupActivity extends MyActionBarActivity {
             }
             @Override
             public void onCancelled(FirebaseError error) {
-                // No-op
+
             }
         });
     }
@@ -186,7 +194,6 @@ public class NewGroupActivity extends MyActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        //inflater.inflate(R.menu.main, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -202,7 +209,7 @@ public class NewGroupActivity extends MyActionBarActivity {
 
         @Override
         public int getCount() {
-            // TODO Auto-generated method stub
+
             return participants.size();
         }
 
@@ -231,12 +238,6 @@ public class NewGroupActivity extends MyActionBarActivity {
 
             if(convertView == null){
                 convertView = mInflater.inflate(R.layout.participant_item, null);
-
-                Log.e("TAG","Position: "+position);
-                Log.e("TAG",participants.toString());
-//                Log.e("TAG","contains: " + participants.containsKey(0));
-//                Log.e("TAG",participants.get(0).toString());
-
                 TextView tvTitle = (TextView) convertView.findViewById(R.id.title);
                 tvTitle.setText(getItem(position));
             }
