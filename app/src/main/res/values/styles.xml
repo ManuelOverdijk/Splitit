@@ -17,7 +17,7 @@
     <item name="colorPrimary">@color/material_blue_500</item>
     <item name="colorPrimaryDark">@color/material_blue_700</item>
     <item name="colorAccent">@color/material_blue_grey_950</item>
-    <item name="android:textColorPrimary">@color/bright_foreground_inverse_material_light</item>
+    <item name="android:textColorPrimary">@color/material_dark_teal_A400</item>
     <item name="android:windowBackground">@color/background_material_light</item>
     <item name="android:buttonStyle">@style/Button</item>
     <item name="windowActionBar">false</item>

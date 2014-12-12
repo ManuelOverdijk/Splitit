@@ -51,7 +51,6 @@ public abstract class FirebaseListAdapterGroup extends BaseAdapter {
                 String groupId = dataSnapshot.getKey();
 //                dataSnapshot.chi
                 Map participants = dataSnapshot.child("participants").getValue(Map.class);
-                Log.e("Name", participants.toString());
 
                 Boolean isEmpty = true;
 

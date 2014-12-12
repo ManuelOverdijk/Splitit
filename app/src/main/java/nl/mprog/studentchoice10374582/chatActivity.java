@@ -127,7 +127,7 @@ public class chatActivity extends MyActionBarActivity {
     }
 
 
-    /* Handles creation of new chat messages and pushes them to Firebase */
+       /* Handles creation of new chat messages and pushes them to Firebase */
     private void sendMessage() {
         EditText inputText = (EditText)findViewById(R.id.messageInput);
         String input = inputText.getText().toString();

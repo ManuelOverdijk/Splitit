@@ -27,13 +27,27 @@ var data = {
     timestamp: new Date().getTime()
 };
 
+var data1 = {
+	title: 'My Bill #1',
+	admin: 'simplelogin:1',
+	created: new Date().getTime(),
+	participants: {
+		'simplelogin:1': 20.1,
+		'simplelogin:2': 19.2,
+		'simplelogin:3': 11.12,
+		'simplelogin:4': 8.20
+	},
+	completed: false,
+	lastUpdated: ""
+};
+
 var firebaseRef = new Firebase(settings.firebaseRoot);
-var announcementRef = firebaseRef.child("groups");
-announcementRef.push(data);
-announcementRef.push(data);
-announcementRef.push(data);
-announcementRef.push(data);
-announcementRef.push(data);
+var announcementRef = firebaseRef.child("bills").child("-Jcxvruekex7EOMiIUZ_");
+announcementRef.set(data1);
+// announcementRef.push(data1);
+// announcementRef.push(data);
+// announcementRef.push(data);
+// announcementRef.push(data);
 
 
 // });

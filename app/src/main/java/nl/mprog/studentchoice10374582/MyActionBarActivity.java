@@ -36,12 +36,11 @@ public class MyActionBarActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         objectPreference = (ObjectPreference) this.getApplication();
         ComplexPreferences complexPreferences = objectPreference.getComplexPreference();
 
         firebaseUrl = getResources().getString(R.string.firebase_url);
-
+        Firebase.setAndroidContext(this);
         ref = new Firebase(firebaseUrl);
         ref.addAuthStateListener(new Firebase.AuthStateListener() {
             @Override

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+
+    <include layout="@layout/toolbar"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextTitle"
+        android:text="Title of group" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonAdd"
+        android:text="Add participant" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="174dp"
+        android:id="@+id/listViewParticipants"
+        android:layout_weight="0.05" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="116dp"
+        android:id="@+id/listView"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.47" />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#555"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        android:id="@+id/buttonDone"
+        android:gravity="center|bottom"/>
+
+
+
+</LinearLayout>

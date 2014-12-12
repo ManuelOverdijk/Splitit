@@ -1,17 +1,13 @@
 package nl.mprog.studentchoice10374582;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
-import android.graphics.drawable.TransitionDrawable;
-import android.os.Build;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -19,9 +15,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.TypedValue;
-import android.view.View;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.firebase.client.AuthData;
+import com.firebase.client.Firebase;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 public class MainActivity extends FragmentActivity {
 
@@ -34,16 +32,35 @@ public class MainActivity extends FragmentActivity {
     private Drawable oldBackground = null;
     private int currentColor = 0xff003768;
 
+    private String groupId;
+
+    public ObjectPreference objectPreference;
+
+    public User user;
+    private Boolean loggedin;
+
+    String firebaseUrl;
+    private Firebase ref;
+    private AuthData authData;
+
+    private GoogleApiClient mGoogleApiClient;
+    private boolean mGoogleIntentInProgress;
+    private boolean mGoogleLoginClicked;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
+
+        Firebase.setAndroidContext(getApplicationContext());
 
         tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         pager = (ViewPager) findViewById(R.id.pager);
         adapter = new MyPagerAdapter(getSupportFragmentManager());
 
         pager.setAdapter(adapter);
+
 
         final int pageMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources()
                 .getDisplayMetrics());
@@ -52,7 +69,48 @@ public class MainActivity extends FragmentActivity {
 
         tabs.setViewPager(pager);
 
+        /* Set SlidingTab color */
         changeColor(currentColor);
+
+        objectPreference = (ObjectPreference) this.getApplication();
+        ComplexPreferences complexPreferences = objectPreference.getComplexPreference();
+
+        firebaseUrl = getResources().getString(R.string.firebase_url);
+
+        ref = new Firebase(firebaseUrl);
+        ref.addAuthStateListener(new Firebase.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(AuthData authData) {
+                if (authData != null) {
+                    loggedin = true;
+                } else {
+                    loggedin = false;
+                    Intent intent = new Intent(getApplicationContext(), SplitIt.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        user = complexPreferences.getObject("user", User.class);
+        authData = user.getAuthData();
+
+        /* Customize our toolbar */
+        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.my_awesome_toolbar);
+        toolbar.setTitle("Split it - "  + user.getName());
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        /* Get GroupId for fetching chat messages */
+        Intent intent = getIntent();
+        if(intent!=null){
+            this.groupId = intent.getStringExtra("groupId");
+
+        } else {
+            Log.e("chatActivity","Error - Intent is null!");
+        }
     }
 
     @Override
@@ -64,56 +122,11 @@ public class MainActivity extends FragmentActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-//        switch (item.getItemId()) {
-//
-//            case R.id.action_contact:
-//                QuickContactFragment dialog = new QuickContactFragment();
-//                dialog.show(getSupportFragmentManager(), "QuickContactFragment");
-//                return true;
-//
-//        }
-
         return super.onOptionsItemSelected(item);
     }
 
     private void changeColor(int newColor) {
-
         tabs.setIndicatorColor(newColor);
-
-        // change ActionBar color just if an ActionBar is available
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-
-            Drawable colorDrawable = new ColorDrawable(newColor);
-            Drawable bottomDrawable = getResources().getDrawable(R.drawable.venus);
-            LayerDrawable ld = new LayerDrawable(new Drawable[] { colorDrawable, bottomDrawable });
-
-            if (oldBackground == null) {
-
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                    ld.setCallback(drawableCallback);
-                } else {
-                   // getActionBar().setBackgroundDrawable(ld);
-                }
-
-            } else {
-
-                TransitionDrawable td = new TransitionDrawable(new Drawable[] { oldBackground, ld });
-
-                // workaround for broken ActionBarContainer drawable handling on
-                // pre-API 17 builds
-                // https://github.com/android/platform_frameworks_base/commit/a7cc06d82e45918c37429a59b14545c6a57db4e4
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                    td.setCallback(drawableCallback);
-                } else {
-                    //getActionBar().setBackgroundDrawable(td);
-                }
-
-                td.startTransition(200);
-
-            }
-
-            oldBackground = ld;
-        }
         currentColor = newColor;
     }
 
@@ -148,7 +161,7 @@ public class MainActivity extends FragmentActivity {
 
     public class MyPagerAdapter extends FragmentPagerAdapter {
 
-        private final String[] TITLES = { "GroupInfo", "Chat", "Bills"};
+        private final String[] TITLES = { "Info", "Chat", "Bills"};
 
         public MyPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -169,13 +182,14 @@ public class MainActivity extends FragmentActivity {
             Log.e("TAG", Integer.toString(position));
             switch (position) {
                 case 0:
-                    return GroupViewFragment.newInstance(position);
+                    return GroupInfoFragment.newInstance(groupId);
                 case 1:
-                    return ChatFragment.newInstance(position);
+                    return GroupChatFragment.newInstance(groupId);
                 case 2:
-                    return GroupViewFragment.newInstance(position);
+//                    return GroupBillFragment.newInstance(groupId);
+                    return null;
                 default:
-                    return GroupViewFragment.newInstance(position);
+                    return null;
             }
         }
 

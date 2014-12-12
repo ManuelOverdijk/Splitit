@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -85,34 +86,17 @@ public class GroupActivity extends MyActionBarActivity {
                 R.string.drawer_close  /* "close drawer" description for accessibility */
         ) {
             public void onDrawerClosed(View view) {
-                getActionBar().setTitle(mTitle);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
 
             public void onDrawerOpened(View drawerView) {
-                getActionBar().setTitle(mDrawerTitle);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+        android.support.v7.widget.Toolbar mToolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.my_awesome_toolbar);
+        toolbar.setTitle("Split it");
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-
-       // mDrawerLayout.syncState();
-
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
-//        if (toolbar != null) {
-//            Log.e("Toolbar::","Toolbar set");
-//            setSupportActionBar(toolbar);
-//            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//            getSupportActionBar().setHomeButtonEnabled(true);
-//        } else {
-//            Log.e("Toolbar::","Toolbar == null");
-//        }
-
-//        ActionBar ab = getSupportActionBar();
-//        ab.setSubtitle(getResources().getString(R.string.subtitle_activity_group));
 
         /* Set Firebase reference for fetching grouplist */
         Firebase.setAndroidContext(getApplicationContext());
@@ -143,7 +127,7 @@ public class GroupActivity extends MyActionBarActivity {
                 TextView adminText = (TextView)view.findViewById(R.id.admin);
                 String groupName = (String) adminText.getTag();
 
-                Intent intent = new Intent().setClass(getApplicationContext(),chatActivity.class);
+                Intent intent = new Intent().setClass(getApplicationContext(),MainActivity.class);
 
                 intent.putExtra("groupId", groupName);
                 startActivity(intent);
@@ -169,6 +153,11 @@ public class GroupActivity extends MyActionBarActivity {
                 // No-op
             }
         });
+    }
+
+    public void addNewGroup(View view){
+        Intent intent = new Intent().setClass(getApplicationContext(),NewGroup.class);
+        startActivity(intent);
     }
 
     @Override
@@ -224,7 +213,7 @@ public class GroupActivity extends MyActionBarActivity {
         // update the main content by replacing fragments
         Fragment fragment = new PlanetFragment();
         Bundle args = new Bundle();
-        args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
+//        args.putInt(PlanetFragment.1, position);
         fragment.setArguments(args);
 
         FragmentManager fragmentManager = getFragmentManager();
@@ -265,7 +254,6 @@ public class GroupActivity extends MyActionBarActivity {
      * Fragment that appears in the "content_frame", shows a planet
      */
     public static class PlanetFragment extends Fragment {
-        public static final String ARG_PLANET_NUMBER = "planet_number";
 
         public PlanetFragment() {
             // Empty constructor required for fragment subclasses
@@ -274,15 +262,17 @@ public class GroupActivity extends MyActionBarActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_planet, container, false);
-            int i = getArguments().getInt(ARG_PLANET_NUMBER);
-            String planet = getResources().getStringArray(R.array.planets_array)[i];
+//            View rootView = inflater.inflate(R.layout.fragment_planet, container, false);
+//            int i = getArguments().getInt(ARG_PLANET_NUMBER);
+//            String planet = getResources().getStringArray(R.array.planets_array)[i];
+//
+//            int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()),
+//                    "drawable", getActivity().getPackageName());
+//            ((ImageView) rootView.findViewById(R.id.image)).setImageResource(imageId);
+//            getActivity().setTitle(planet);
+//            return rootView;
 
-            int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()),
-                    "drawable", getActivity().getPackageName());
-            ((ImageView) rootView.findViewById(R.id.image)).setImageResource(imageId);
-            getActivity().setTitle(planet);
-            return rootView;
+            return null;
         }
     }
 }

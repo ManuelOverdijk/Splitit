@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!-- android:layout_gravity="start" tells DrawerLayout to treat
+    <!--  tells DrawerLayout to treat
          this as a sliding drawer on the left side for left-to-right
          languages and on the right side for right-to-left languages.
          The drawer is given a fixed width in dp and extends the full height of
@@ -28,20 +28,32 @@
         android:dividerHeight="0dp"
         android:background="#111"/>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar"/>
+
+
+    <Button
+        android:id="@+id/addGroup"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        tools:context=".MainActivity">
-        <include layout="@layout/toolbar"/>
-        <ListView
-            android:id="@+id/list"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_above="@+id/listFooter"
-            android:transcriptMode="alwaysScroll"
-            />
-    </RelativeLayout>
+        android:text="Add a new group"
+        android:onClick="addNewGroup"
+        android:clickable="true"/>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:transcriptMode="alwaysScroll"
+        />
+</LinearLayout>
 </android.support.v4.widget.DrawerLayout>
 
