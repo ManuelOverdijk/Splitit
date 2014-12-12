@@ -46,8 +46,8 @@ public class GroupChatFragment extends Fragment {
 
     public ObjectPreference objectPreference;
 
-    public static GroupBillFragment newInstance(String groupId) {
-        GroupBillFragment f = new GroupBillFragment();
+    public static GroupChatFragment newInstance(String groupId) {
+        GroupChatFragment f = new GroupChatFragment();
         Bundle b = new Bundle();
         b.putString(ARG_GROUPID, groupId);
         f.setArguments(b);

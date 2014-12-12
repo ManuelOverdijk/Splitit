@@ -11,6 +11,9 @@ public class Bill {
     private Long created;
     private Boolean completed;
     private Long lastUpdated;
+    private Integer total;
+    private Integer paid;
+
 
 
     /* Used for Firebase Object mapping */
@@ -53,6 +56,14 @@ public class Bill {
     public void setCreated(Long c) { this.created = c;}
 
     public Long getCreated() { return created;}
+
+    public void setTotal(Integer c) { this.total = c;}
+
+    public Integer getTotal() { return total;}
+
+    public void setPaid(Integer c) { this.paid = c;}
+
+    public Integer getPaid() { return paid;}
 
     public void setAdmin(String admin){
         this.admin = admin;

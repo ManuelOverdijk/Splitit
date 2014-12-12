@@ -37,6 +37,8 @@ var data1 = {
 		'simplelogin:3': 11.12,
 		'simplelogin:4': 8.20
 	},
+	total: 100,
+	paid: 50,
 	completed: false,
 	lastUpdated: ""
 };

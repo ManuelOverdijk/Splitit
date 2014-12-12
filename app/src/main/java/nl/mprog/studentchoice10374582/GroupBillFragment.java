@@ -3,6 +3,7 @@ package nl.mprog.studentchoice10374582;
 /**
  * Created by manuel on 02-12-14.
  */
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,8 +11,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.client.AuthData;
 import com.firebase.client.DataSnapshot;
@@ -126,6 +130,22 @@ public class GroupBillFragment extends Fragment {
 
             @Override
             public void onCancelled(FirebaseError error) {
+            }
+        });
+
+          /* Handle clicks on ListView's items and start new chatActivity */
+        listView.setClickable(true);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView tvBillId = (TextView)view.findViewById(R.id.billId);
+                String billId = (String) tvBillId.getTag();
+
+                Intent intent = new Intent().setClass(getActivity().getBaseContext(),BillActivity.class);
+
+                intent.putExtra("billId", billId);
+                startActivity(intent);
+
+                Toast.makeText(getActivity().getBaseContext(), billId, Toast.LENGTH_SHORT).show();
             }
         });
     }
