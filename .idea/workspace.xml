@@ -118,13 +118,15 @@
       <file leaf-file-name="GroupActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/mprog/studentchoice10374582/GroupActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.608871" vertical-offset="1558" max-vertical-offset="3525">
-              <caret line="155" column="52" selection-start-line="155" selection-start-column="52" selection-end-line="155" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.09274194" vertical-offset="2144" max-vertical-offset="2640">
+              <caret line="177" column="18" selection-start-line="177" selection-start-column="18" selection-end-line="177" selection-end-column="18" />
               <folding>
                 <element signature="e#2520#2521#0" expanded="true" />
                 <element signature="e#2575#2576#0" expanded="true" />
                 <element signature="e#2634#2635#0" expanded="true" />
                 <element signature="e#2689#2690#0" expanded="true" />
+                <element signature="e#6292#6293#0" expanded="true" />
+                <element signature="e#6321#6322#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -3047,13 +3049,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/nl/mprog/studentchoice10374582/GroupActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.608871" vertical-offset="1558" max-vertical-offset="3525">
-          <caret line="155" column="52" selection-start-line="155" selection-start-column="52" selection-end-line="155" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.09274194" vertical-offset="2144" max-vertical-offset="2640">
+          <caret line="177" column="18" selection-start-line="177" selection-start-column="18" selection-end-line="177" selection-end-column="18" />
           <folding>
             <element signature="e#2520#2521#0" expanded="true" />
             <element signature="e#2575#2576#0" expanded="true" />
             <element signature="e#2634#2635#0" expanded="true" />
             <element signature="e#2689#2690#0" expanded="true" />
+            <element signature="e#6292#6293#0" expanded="true" />
+            <element signature="e#6321#6322#0" expanded="true" />
           </folding>
         </state>
       </provider>
