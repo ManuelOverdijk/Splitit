@@ -13,9 +13,10 @@ import com.firebase.client.Query;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import nl.mprog.studentchoice10374582.objectData.Bill;
 
 public abstract class FirebaseListAdapterBill extends BaseAdapter {
 

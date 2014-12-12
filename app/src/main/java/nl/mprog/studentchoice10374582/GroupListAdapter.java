@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.TextView;
 import com.firebase.client.Query;
 
+import nl.mprog.studentchoice10374582.objectData.Group;
+
 public class GroupListAdapter extends FirebaseListAdapterGroup {
 
     // The username for this client. We use this to indicate which messages originated from this user

@@ -17,6 +17,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import nl.mprog.studentchoice10374582.objectData.Group;
+
 /**
  *
  * Edited version of the FirebaseListAdapter provided by Firebase.

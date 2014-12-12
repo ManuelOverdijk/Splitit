@@ -3,32 +3,21 @@ package nl.mprog.studentchoice10374582;
 /**
  * Created by manuel on 02-12-14.
  */
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.TypedValue;
-import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.FrameLayout.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.firebase.client.AuthData;
@@ -37,12 +26,10 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
-import java.util.Map.Entry;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
-import java.util.zip.Inflater;
+
+import nl.mprog.studentchoice10374582.objectData.Group;
+import nl.mprog.studentchoice10374582.objectData.User;
 
 public class GroupInfoFragment extends Fragment {
 

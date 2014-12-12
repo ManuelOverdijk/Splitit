@@ -1,5 +1,6 @@
 package nl.mprog.studentchoice10374582;
 
+
 /**
  * Created by manuel on 02-12-14.
  */
@@ -22,6 +23,10 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+
+import nl.mprog.studentchoice10374582.objectData.Chat;
+import nl.mprog.studentchoice10374582.objectData.Group;
+import nl.mprog.studentchoice10374582.objectData.User;
 
 public class GroupChatFragment extends Fragment {
 

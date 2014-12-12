@@ -3,8 +3,6 @@ package nl.mprog.studentchoice10374582;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -13,6 +11,8 @@ import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.plus.Plus;
+
+import nl.mprog.studentchoice10374582.objectData.User;
 
 /**
  * Created by manuel on 14-11-14.
@@ -49,7 +49,7 @@ public class MyActionBarActivity extends ActionBarActivity {
                     loggedin = true;
                 } else {
                     loggedin = false;
-                    Intent intent = new Intent(getApplicationContext(), SplitIt.class);
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
                 }
             }
@@ -118,7 +118,7 @@ public class MyActionBarActivity extends ActionBarActivity {
             this.user = null;
             this.loggedin = false;
 
-            Intent intent = new Intent(getApplicationContext(), SplitIt.class);
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
 
         }

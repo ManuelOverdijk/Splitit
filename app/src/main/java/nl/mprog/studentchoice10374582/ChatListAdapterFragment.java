@@ -1,11 +1,12 @@
 package nl.mprog.studentchoice10374582;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.TextView;
 import com.firebase.client.Query;
+
+import nl.mprog.studentchoice10374582.objectData.Chat;
 
 
 /* https://github.com/firebase/AndroidChat/blob/master/src/com/firebase/androidchat/ChatListAdapter.java */

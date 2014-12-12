@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -30,6 +29,9 @@ import com.firebase.client.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import nl.mprog.studentchoice10374582.objectData.Bill;
+import nl.mprog.studentchoice10374582.objectData.User;
 
 
 public class BillActivity extends MyActionBarActivity {

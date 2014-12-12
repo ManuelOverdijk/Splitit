@@ -1,4 +1,4 @@
-package nl.mprog.studentchoice10374582;
+package nl.mprog.studentchoice10374582.objectData;
 
 public class Chat {
 
@@ -7,10 +7,10 @@ public class Chat {
 
     // Required default constructor for Firebase object mapping
     @SuppressWarnings("unused")
-    private Chat() {
+    public Chat() {
     }
 
-    Chat(String message, String author) {
+    public Chat(String message, String author) {
         this.message = message;
         this.author = author;
     }

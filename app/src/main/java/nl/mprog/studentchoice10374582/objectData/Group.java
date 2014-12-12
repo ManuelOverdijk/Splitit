@@ -1,4 +1,4 @@
-package nl.mprog.studentchoice10374582;
+package nl.mprog.studentchoice10374582.objectData;
 
 
 import android.util.Log;

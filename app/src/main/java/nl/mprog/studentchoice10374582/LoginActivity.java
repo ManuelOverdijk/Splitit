@@ -22,10 +22,8 @@ import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.widget.LoginButton;
 import com.firebase.client.AuthData;
-import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
 import com.google.android.gms.auth.GoogleAuthException;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.auth.UserRecoverableAuthException;
@@ -40,6 +38,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import nl.mprog.studentchoice10374582.objectData.User;
+
 /**
  * This application demos the use of the Firebase Login feature. It currently supports logging in
  * with Google, Facebook, Twitter, Email/Password, and Anonymous providers.
@@ -53,7 +53,7 @@ import java.util.Map;
  * Email/Password is provided using {@link com.firebase.client.Firebase}
  * Anonymous is provided using {@link com.firebase.client.Firebase}
  */
-public class SplitIt extends ActionBarActivity implements
+public class LoginActivity extends ActionBarActivity implements
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
 
@@ -164,7 +164,7 @@ public class SplitIt extends ActionBarActivity implements
             @Override
             public void onClick(View view) {
                 /* open register_activity */
-                Intent intent = new Intent(SplitIt.this, RegisterActivity.class);
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });
@@ -409,7 +409,7 @@ public class SplitIt extends ActionBarActivity implements
 
                 try {
                     String scope = String.format("oauth2:%s", Scopes.PLUS_LOGIN);
-                    token = GoogleAuthUtil.getToken(SplitIt.this, Plus.AccountApi.getAccountName(mGoogleApiClient), scope);
+                    token = GoogleAuthUtil.getToken(LoginActivity.this, Plus.AccountApi.getAccountName(mGoogleApiClient), scope);
                 } catch (IOException transientEx) {
                     /* Network or server error */
                     Log.e(TAG, "Error authenticating with Google: " + transientEx);

@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import com.firebase.client.Query;
 
+import nl.mprog.studentchoice10374582.objectData.Bill;
+
 
 public class BillListAdapterFragment extends FirebaseListAdapterBill{
 

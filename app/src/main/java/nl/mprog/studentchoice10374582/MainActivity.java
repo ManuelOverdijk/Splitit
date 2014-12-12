@@ -21,6 +21,8 @@ import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import nl.mprog.studentchoice10374582.objectData.User;
+
 public class MainActivity extends FragmentActivity {
 
     private final Handler handler = new Handler();
@@ -85,7 +87,7 @@ public class MainActivity extends FragmentActivity {
                     loggedin = true;
                 } else {
                     loggedin = false;
-                    Intent intent = new Intent(getApplicationContext(), SplitIt.class);
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
                 }
             }

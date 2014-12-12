@@ -16,7 +16,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +24,9 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+
+import nl.mprog.studentchoice10374582.objectData.Group;
+import nl.mprog.studentchoice10374582.objectData.User;
 
 public class GroupBillFragment extends Fragment {
 

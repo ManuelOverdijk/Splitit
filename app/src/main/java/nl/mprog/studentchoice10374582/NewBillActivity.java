@@ -30,10 +30,11 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import nl.mprog.studentchoice10374582.objectData.Bill;
 
 
 public class NewBillActivity extends MyActionBarActivity {
