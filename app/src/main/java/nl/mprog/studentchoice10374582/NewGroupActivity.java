@@ -30,6 +30,7 @@ import com.firebase.client.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
+import nl.mprog.studentchoice10374582.adapters.GroupListAdapter;
 import nl.mprog.studentchoice10374582.objectData.Group;
 
 

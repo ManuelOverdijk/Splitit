@@ -12,6 +12,8 @@ import com.firebase.client.Firebase;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.plus.Plus;
 
+import nl.mprog.studentchoice10374582.helpers.ComplexPreferences;
+import nl.mprog.studentchoice10374582.helpers.ObjectPreference;
 import nl.mprog.studentchoice10374582.objectData.User;
 
 /**

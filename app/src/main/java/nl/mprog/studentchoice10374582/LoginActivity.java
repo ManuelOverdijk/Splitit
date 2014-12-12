@@ -38,6 +38,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import nl.mprog.studentchoice10374582.helpers.ComplexPreferences;
+import nl.mprog.studentchoice10374582.helpers.ObjectPreference;
 import nl.mprog.studentchoice10374582.objectData.User;
 
 /**

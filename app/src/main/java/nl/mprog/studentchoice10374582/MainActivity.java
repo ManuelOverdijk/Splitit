@@ -21,6 +21,11 @@ import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import nl.mprog.studentchoice10374582.fragments.GroupBillFragment;
+import nl.mprog.studentchoice10374582.fragments.GroupChatFragment;
+import nl.mprog.studentchoice10374582.fragments.GroupInfoFragment;
+import nl.mprog.studentchoice10374582.helpers.ComplexPreferences;
+import nl.mprog.studentchoice10374582.helpers.ObjectPreference;
 import nl.mprog.studentchoice10374582.objectData.User;
 
 public class MainActivity extends FragmentActivity {

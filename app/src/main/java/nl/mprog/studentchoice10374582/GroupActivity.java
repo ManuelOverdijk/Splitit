@@ -26,6 +26,8 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
+import nl.mprog.studentchoice10374582.adapters.GroupListAdapter;
+
 public class GroupActivity extends MyActionBarActivity {
 
     private ValueEventListener connectedListener;

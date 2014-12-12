@@ -34,6 +34,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import nl.mprog.studentchoice10374582.adapters.GroupListAdapter;
 import nl.mprog.studentchoice10374582.objectData.Bill;
 
 
