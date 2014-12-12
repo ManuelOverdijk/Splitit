@@ -1,5 +1,11 @@
 Splitit
 =======
+## Remarkts
+
+I have not yet implemented usernames, so all mapping is done on FirebaseId's. Use account simplelogin:1 to get an account with groups, chats and bills. Login with email 'm@m.nl' and password 'm'. 
+
+The drawer in GroupActivity is implemented, but not yet functional. 
+
 ## Database
 Email me at manuel.overdijk@gmail.com for access
 
