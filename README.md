@@ -1,5 +1,7 @@
 Splitit
 =======
+## Database
+Email me at manuel.overdijk@gmail.com for access
 
 ## Design document
 https://github.com/ManuelOverdijk/Splitit/blob/master/doc/designdocument.md
