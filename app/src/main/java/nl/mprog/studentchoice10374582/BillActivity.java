@@ -168,7 +168,6 @@ public class BillActivity extends MyActionBarActivity {
 
         alert.setPositiveButton("Add", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
-                // parse data from EditText.
 
                 if (!TextUtils.isEmpty(inputAmount.getText().toString())) {
 
@@ -180,7 +179,6 @@ public class BillActivity extends MyActionBarActivity {
                         int oldValue = Integer.parseInt(value.toString());
 
                         participants.put(userid,(oldValue - amount));
-                        Log.e("Key","Contains key!");
 
                         bill.setParticipants(participants);
                         bill.setPaid(bill.getPaid()+amount);

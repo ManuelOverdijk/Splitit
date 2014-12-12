@@ -14,13 +14,11 @@ public class Bill {
     private Integer total;
     private Integer paid;
 
-
-
     /* Used for Firebase Object mapping */
     public Bill() {}
 
 
-    Bill(String title, String admin) {
+    public Bill(String title, String admin) {
         this.title = title;
         this.admin = admin;
     }

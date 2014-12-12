@@ -18,11 +18,10 @@ public class Group {
     // Required default constructor for Firebase object mapping
     @SuppressWarnings("unused")
     public Group() {
-        Log.e("Group", "Group created one1");
+
     }
 
     Group(String title, String admin) {
-        Log.e("Group", "Group created one2");
         this.timestamp = new Date().getTime();
         this.title = title;
         this.admin = admin;
@@ -40,10 +39,6 @@ public class Group {
     public Long getTimestamp() {
         return timestamp;
     }
-
-//    public void addParticipant(String name) {
-//        this.participants.add(name);
-//    }
 
     public Map getParticipants() {
         return participants;
